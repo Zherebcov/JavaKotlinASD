@@ -29,6 +29,8 @@ class TrieTest {
         assertFalse("zy" in trie)
         assertFalse("zv" in trie)
 
+        assertEquals(setOf("abcdefg", "zyx", "zwv", "zyt", "abcde"), trie)
+
         trie.remove("zwv")
         trie.remove("zy")
         assertEquals(4, trie.size)
