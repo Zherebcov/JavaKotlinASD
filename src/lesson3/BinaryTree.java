@@ -19,11 +19,21 @@ public class BinaryTree<T extends Comparable<T>> extends AbstractSet<T> implemen
         Node(T value) {
             this.value = value;
         }
+
+        int getHeight() {
+            int leftHeight = left != null ? (1 + left.getHeight()) : 1;
+            int rightHeight = right != null ? (1 + right.getHeight()) : 1;
+            return Math.max(leftHeight, rightHeight);
+        }
     }
 
     private Node<T> root = null;
 
     private int size = 0;
+
+    public int getHeight() {
+        return root != null ? root.getHeight() : 0;
+    }
 
     @Override
     public boolean add(T t) {

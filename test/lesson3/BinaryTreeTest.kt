@@ -73,11 +73,13 @@ class BinaryTreeTest {
                 binarySet += element
             }
             val toRemove = list[random.nextInt(list.size)]
+            val prevHeight = binarySet.height
             treeSet.remove(toRemove)
             binarySet.remove(toRemove)
             println("Removing $toRemove from $list")
             assertEquals("After removal of $toRemove from $list", treeSet, binarySet)
             assertEquals(treeSet.size, binarySet.size)
+            assertTrue(binarySet.height <= prevHeight)
             for (element in list) {
                 val inn = element != toRemove
                 assertEquals("$element should be ${if (inn) "in" else "not in"} tree", inn, element in binarySet)
